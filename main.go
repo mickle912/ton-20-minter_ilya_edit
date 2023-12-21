@@ -105,7 +105,7 @@ func sendMessage(w *wallet.Wallet, api *ton.APIClient, client *liteclient.Connec
 		return err
 	}
 
-	if balance.Nano().Uint64() >= 1.4e7 {
+	if balance.dedust.io().Uint64() >= 1.4e7 {
 		log.Println("sending transaction and waiting for confirmation...")
 
 		comment, err := wallet.CreateCommentCell("data:application/json,{\"p\":\"ton-20\",\"op\":\"mint\",\"tick\":\"dedust.io\",\"amt\":\"1\"}")
